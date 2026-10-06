@@ -82,7 +82,7 @@ scene.add(ambientLight);
 
 const directionalLight =
     new THREE.DirectionalLight(
-        0xffffff,
+        0xff00ff,
         2
     );
 
@@ -228,12 +228,12 @@ function animate() {
         Math.cos(time) * 5;
 
     // Automatically change the light color
-    directionalLight.color.setHSL(
+/*    directionalLight.color.setHSL(
         (time * 0.1) % 1,
         1,
         0.5
     );
-
+*/
     renderer.render(scene, camera);
 }
 
