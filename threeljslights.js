@@ -71,7 +71,7 @@ scene.add(plane);
 
 const ambientLight = new THREE.AmbientLight(
     0xffffff,
-    0.5
+    2
 );
 
 scene.add(ambientLight);
@@ -83,7 +83,7 @@ scene.add(ambientLight);
 const directionalLight =
     new THREE.DirectionalLight(
         0xffffff,
-        2
+        0
     );
 
 directionalLight.position.set(
@@ -101,7 +101,7 @@ scene.add(directionalLight);
 const pointLight =
     new THREE.PointLight(
         0xffffff,
-        2
+        200
     );
 
 pointLight.position.set(
@@ -111,6 +111,20 @@ pointLight.position.set(
 );
 
 scene.add(pointLight);
+
+const pointLight2 =
+    new THREE.PointLight(
+        0x0000ff,
+        200
+    );
+
+pointLight2.position.set(
+    -3,
+    3,
+    3
+);
+
+scene.add(pointLight2);
 
 // =====================
 // GUI Controls
