@@ -227,13 +227,13 @@ function animate() {
     directionalLight.position.z =
         Math.cos(time) * 5;
 
-  /*  // Automatically change the light color
+    // Automatically change the light color
     directionalLight.color.setHSL(
         (time * 0.1) % 1,
         1,
         0.5
     );
-*/
+
     renderer.render(scene, camera);
 }
 
