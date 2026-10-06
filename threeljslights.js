@@ -71,7 +71,7 @@ scene.add(plane);
 
 const ambientLight = new THREE.AmbientLight(
     0xffffff,
-    0.2
+    0.5
 );
 
 scene.add(ambientLight);
@@ -217,7 +217,7 @@ function animate() {
 
     
     cube.rotation.y += 0.01;
-
+/*
      const time = Date.now() * 0.001;
 
     // Move the directional light
@@ -233,7 +233,7 @@ function animate() {
         1,
         0.5
     );
-
+*/
     renderer.render(scene, camera);
 }
 
