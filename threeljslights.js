@@ -82,7 +82,7 @@ scene.add(ambientLight);
 
 const directionalLight =
     new THREE.DirectionalLight(
-        0xff00ff,
+        0xffffff,
         2
     );
 
@@ -210,6 +210,14 @@ pointFolder.open();
 // =====================
 // Animation Loop
 // =====================
+
+setInterval(() => {
+
+    directionalLight.color.set(
+        Math.random() * 0xffffff
+    );
+
+}, 1000);
 
 function animate() {
 
