@@ -6,7 +6,7 @@ import { GUI } from 'https://cdn.jsdelivr.net/npm/dat.gui@0.7.9/build/dat.gui.mo
 // =====================
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x222222);
+scene.background = new THREE.Color(0x000000);
 
 // =====================
 // Camera
@@ -19,7 +19,7 @@ const camera = new THREE.PerspectiveCamera(
     1000
 );
 
-camera.position.z = 5;
+camera.position.z = 3;
 
 // =====================
 // Renderer
@@ -43,7 +43,7 @@ document.body.appendChild(renderer.domElement);
 const cube = new THREE.Mesh(
     new THREE.BoxGeometry(),
     new THREE.MeshStandardMaterial({
-        color: 0x00ff00
+        color: 0x666666
     })
 );
 
@@ -53,7 +53,7 @@ scene.add(cube);
 // Ground Plane
 // =====================
 
-const plane = new THREE.Mesh(
+/*const plane = new THREE.Mesh(
     new THREE.PlaneGeometry(10, 10),
     new THREE.MeshStandardMaterial({
         color: 0x888888
@@ -64,14 +64,14 @@ plane.rotation.x = -Math.PI / 2;
 plane.position.y = -1.5;
 
 scene.add(plane);
-
+*/
 // =====================
 // Ambient Light
 // =====================
 
 const ambientLight = new THREE.AmbientLight(
     0xffffff,
-    0.5
+    0.2
 );
 
 scene.add(ambientLight);
@@ -83,7 +83,7 @@ scene.add(ambientLight);
 const directionalLight =
     new THREE.DirectionalLight(
         0xffffff,
-        1
+        2
     );
 
 directionalLight.position.set(
@@ -101,7 +101,7 @@ scene.add(directionalLight);
 const pointLight =
     new THREE.PointLight(
         0xff0000,
-        20
+        0
     );
 
 pointLight.position.set(
@@ -128,7 +128,9 @@ const controls = {
     pointColor: "#ff0000"
 };
 
+
 const gui = new GUI();
+gui.domElement.style.display = "none";
 
 // Ambient Light Folder
 
@@ -213,8 +215,24 @@ function animate() {
 
     requestAnimationFrame(animate);
 
-    cube.rotation.x += 0.01;
+    
     cube.rotation.y += 0.01;
+
+     const time = Date.now() * 0.001;
+
+    // Move the directional light
+    directionalLight.position.x =
+        Math.sin(time) * 5;
+
+    directionalLight.position.z =
+        Math.cos(time) * 5;
+
+    // Automatically change the light color
+    directionalLight.color.setHSL(
+        (time * 0.1) % 1,
+        1,
+        0.5
+    );
 
     renderer.render(scene, camera);
 }
