@@ -82,7 +82,7 @@ scene.add(ambientLight);
 
 const directionalLight =
     new THREE.DirectionalLight(
-        0xffff00,
+        0xffffff,
         2
     );
 
@@ -217,7 +217,7 @@ function animate() {
 
     
     cube.rotation.y += 0.01;
-/*
+
      const time = Date.now() * 0.001;
 
     // Move the directional light
@@ -227,7 +227,7 @@ function animate() {
     directionalLight.position.z =
         Math.cos(time) * 5;
 
-    // Automatically change the light color
+  /*  // Automatically change the light color
     directionalLight.color.setHSL(
         (time * 0.1) % 1,
         1,
