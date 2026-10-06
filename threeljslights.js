@@ -82,7 +82,7 @@ scene.add(ambientLight);
 
 const directionalLight =
     new THREE.DirectionalLight(
-        0xffffff,
+        0xffff00,
         2
     );
 
