@@ -87,9 +87,9 @@ const directionalLight =
     );
 
 directionalLight.position.set(
-    5,
-    5,
-    5
+    1,
+    1,
+    1
 );
 
 scene.add(directionalLight);
